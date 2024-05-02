@@ -1,5 +1,7 @@
 package com.shoykatsaha.composeui
 
+import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,6 +15,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
@@ -22,14 +25,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.shoykatsaha.composeui.ui.theme.ComposeUiTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            MyApp()
 
         }
     }
@@ -50,73 +57,424 @@ fun  MyApp(){
 }
 
 @Composable
-fun BoxExample() {
-    Box(
-        //contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Surface (
-            color = Color.Blue,
-            shape = RoundedCornerShape(10),
+fun BoxExample(modifier: Modifier= Modifier) {
+    Column {
+        Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
-        ){
-
-        }
-        Surface (
-            color = Color.Cyan,
-            shape = RoundedCornerShape(30),
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 150.dp, start = 24.dp, end = 24.dp)
-                .height(100.dp)
-        ){
-
-        }
-
-
-
-    }
-
-}
-
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Column(
-        //verticalArrangement = Arrangement.Center,
-        /*horizontalAlignment = Alignment.CenterHorizontally,
-        modifier =  modifier.background(Color.Blue)*/){
-
-        Text(
-            text = "Hello $name!",
-            modifier = modifier
-        )
-        Text(
-            text = "Hello Saha!",
-            modifier = modifier
-        )
-        Text(
-            text = "Hello Shoykat !",
-            modifier = modifier
-        )
-        Row(
-            modifier = modifier
-                .background(Color.Blue)
-                .fillMaxWidth()
-            /* verticalAlignment = Alignment.Bottom,
-             horizontalArrangement = Arrangement.Center*/
+                .fillMaxHeight()
+                .background(Color.Gray)
+                .weight(1f), contentAlignment = Alignment.CenterEnd
         ) {
-
             Text(
-                text = "Hello Shoykat !",
-                modifier = modifier
+                text = "0",
+                fontSize = 30.sp
             )
+
+        }
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight()
+                .fillMaxHeight()
+                .background(Color.Red)
+                .weight(5f),
+        ) {
+            Column {
+                Row {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "Cqq",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                }
+                Row (modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp)){
+                    Column(modifier = Modifier.width(100.dp)) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .fillMaxHeight()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+
+                    }
+                    Column(modifier = Modifier.width(100.dp)) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .fillMaxHeight()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+
+                    }
+                    Column(modifier = Modifier.width(100.dp)) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .fillMaxHeight()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+
+                    }
+                    Column(modifier = Modifier.width(100.dp)) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+
+
+                    }
+
+
+                }
+                Row (modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp)){
+                    Column(modifier = Modifier.width(100.dp)) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .fillMaxHeight()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "Cjjj",
+                                fontSize = 30.sp
+                            )
+
+                        }
+
+                    }
+                    Column(modifier = Modifier.width(100.dp)) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .fillMaxHeight()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+
+                    }
+                    Column(modifier = Modifier.width(100.dp)) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .fillMaxHeight()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "C",
+                                fontSize = 30.sp
+                            )
+
+                        }
+
+                    }
+                    Column(modifier = Modifier.width(100.dp)) {
+                        Box(
+                            modifier = Modifier.fillMaxWidth()
+                                .padding(5.dp)
+                                .background(Color.Blue)
+                                .weight(1f), contentAlignment = Alignment.Center
+                        ) {
+                            Text(
+                                text = "Cnnn",
+                                fontSize = 30.sp
+                            )
+
+                        }
+
+
+                    }
+
+
+                }
+
+
+                /*Row {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                }
+                Row {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(2f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .fillMaxHeight()
+                            .padding(5.dp)
+                            .background(Color.Blue)
+                            .weight(1f), contentAlignment = Alignment.Center
+                    ) {
+                        Text(
+                            text = "C",
+                            fontSize = 30.sp
+                        )
+
+                    }
+                }*/
+            }
+
+
         }
     }
-
 }
+
+
 
 @Preview(showBackground = true)
 @Composable
